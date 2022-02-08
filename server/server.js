@@ -9,8 +9,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors())
 
 app.get('/', (req, res) => {
-  console.log('request received')
-  return res.status(200).send('hello from server')
+  const breweries = [
+      {
+        name: "NoLabel",
+        location: "Katy"
+      },
+      {
+        name: '8th wonder',
+        location: "Houston"
+      }
+    
+  ]
+  return res.status(200).json(breweries)
 })
 
 app.listen(PORT, () => {
